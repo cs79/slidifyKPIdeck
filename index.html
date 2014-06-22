@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset='utf-8'>
-	<title>Pitch Deck</title>
-	<meta name="description" content="Pitch Deck">
-	<meta name="author" content="Alex Lee">
-	<meta name="generator" content="slidify" />
-	
-	<!-- LOAD STYLE SHEETS -->
-	<link rel="stylesheet" href="libraries/frameworks/html5slides/default/styles.css">
-	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />  <link rel="stylesheet" href = "assets/css/ribbons.css">
-  
-</head>
-<body style='display: none'>
-	<section class='slides layout-regular template-regular'>
-     <article class="" id="slide-1" style="background:;">
-  <h3>Financial Key Performance Indicators (KPIs): Online Dashboard</h3>
-  <p>We are introducing a new, online, financial management oversight tool to track our company&#39;s performance, built in R.</p>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Slidify Pitch Deck for Financial KPI Shiny App : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Slidify Pitch Deck for Financial KPI Shiny App</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/cs79/slidifyKPIdeck">View on GitHub</a>
+
+          <h1 id="project_title">Slidify Pitch Deck for Financial KPI Shiny App</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/cs79/slidifyKPIdeck/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/cs79/slidifyKPIdeck/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>&lt;!DOCTYPE html&gt;
+
+</p>
+    Pitch Deck<pre><code>&lt;!-- LOAD STYLE SHEETS --&gt;
+&lt;link rel="stylesheet" href="libraries/frameworks/html5slides/default/styles.css"&gt;
+&lt;link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" /&gt;  &lt;link rel="stylesheet" href = "assets/css/ribbons.css"&gt;
+</code></pre>
+
+<p>
+</p>
+      <h3>
+<a name="financial-key-performance-indicators-kpis-online-dashboard" class="anchor" href="#financial-key-performance-indicators-kpis-online-dashboard"><span class="octicon octicon-link"></span></a>Financial Key Performance Indicators (KPIs): Online Dashboard</h3>
+  <p>We are introducing a new, online, financial management oversight tool to track our company's performance, built in R.</p>
 
 <p>What this tool offers:</p>
 
@@ -25,41 +52,34 @@
 <li>User-defined alert thresholds</li>
 <li>Easy, online accessibility with a graphical frontend</li>
 <li>Customizable in R without web development knowledge</li>
-</ul>
-
-<p>Where to find it:</p>
+</ul><p>Where to find it:</p>
 
 <ul>
-<li>Online at: <a href="https://cs79.shinyapps.io/Financial-KPI-Tool/">https://cs79.shinyapps.io/Financial-KPI-Tool/</a></li>
-</ul>
-
-</article>
-
-<article class="class" id="id" style="background:;">
-  <h3>What Metrics are Covered?</h3>
-  <p>By default, this online tool supports:</p>
+<li>Online at: <a href="https://cs79.shinyapps.io/Financial-KPI-Tool/">https://cs79.shinyapps.io/Financial-KPI-Tool/</a>
+</li>
+</ul><p></p> <p> </p><h3>
+<a name="what-metrics-are-covered" class="anchor" href="#what-metrics-are-covered"><span class="octicon octicon-link"></span></a>What Metrics are Covered?</h3>
+  <p>By default, this online tool supports:</p> 
 
 <ul>
 <li>Current Ratio: \(Current Liabilities/Current Assets\)</li>
 <li>Quick Ratio: \(Current Assets-Inventory/Current Liabilities\)</li>
 <li>Working Capital Ratio: \(Current Assets/Current Liabilities\)</li>
 <li>Debt Ratio: \(Liabilities/Assets\)</li>
-</ul>
+</ul><p>By virtue of being written in R with Shiny, it is easily extensible to cover other metrics as needed by management.</p>
 
-<p>By virtue of being written in R with Shiny, it is easily extensible to cover other metrics as needed by management.</p>
+<p></p>
 
-</article>
+<p> </p><h3>
+<a name="how-it-works-example-in-r" class="anchor" href="#how-it-works-example-in-r"><span class="octicon octicon-link"></span></a>How it Works: Example in R</h3>
+  <p>In conjunction with the Shiny web framework for R, this application uses R to compute ratios and track indicators.  As an example, the app's Quick Ratio function looks like this:</p> 
 
-<article class="class" id="id" style="background:;">
-  <h3>How it Works: Example in R</h3>
-  <p>In conjunction with the Shiny web framework for R, this application uses R to compute ratios and track indicators.  As an example, the app&#39;s Quick Ratio function looks like this:</p>
-
-<pre><code class="r">qRat &lt;- function(curAssets, inv, curLiab) { round((curAssets-inv)/curLiab, 2) }
+<pre><code>qRat &lt;- function(curAssets, inv, curLiab) { round((curAssets-inv)/curLiab, 2) }
 </code></pre>
 
 <p>If we knew the formula Current Assets offhand, we could pass it to the function directly, along with our current liabilities:</p>
 
-<pre><code class="r">cash = 100; marketableSecurities = 200; inventory = 300; accountsReceivable = 500; otherLiquidAssets = 1500; liabilities = 790
+<pre><code>cash = 100; marketableSecurities = 200; inventory = 300; accountsReceivable = 500; otherLiquidAssets = 1500; liabilities = 790
 qRat(sum(cash, marketableSecurities, inventory, accountsReceivable, otherLiquidAssets), inventory, liabilities)
 </code></pre>
 
@@ -68,57 +88,56 @@ qRat(sum(cash, marketableSecurities, inventory, accountsReceivable, otherLiquidA
 
 <p>The web app saves users the trouble of having to know formulae like this; individual figures can be plugged directly into the interface and the app computes them automatically.</p>
 
-</article>
+<p></p>
 
-<article class="class" id="id" style="background:;">
-  <h3>What else should I know?</h3>
+<p> </p><h3>
+<a name="what-else-should-i-know" class="anchor" href="#what-else-should-i-know"><span class="octicon octicon-link"></span></a>What else should I know?</h3>
   <ul>
 <li>The app provides a graphical interface for entering financial figures and setting thresholds -- no need to use R code directly as on the previous slide.</li>
 <li>The app can track multiple metrics simultaneously, and will recompute KPIs on the fly as figures are adjusted for all ratios for which those figures are relevant.</li>
 <li>The application also allows custom specification of alert levels: alert thresholds can be specified on a per-ratio basis, and notify the user if they are being approached and/or exceeded.</li>
 <li>The app can be used from anywhere with web access -- no more worrying about having the right spreadsheet.  This is a new one-stop-shop for financial analysis for management.</li>
-</ul>
+</ul><p></p>
 
-</article>
-
-<article class="class" id="id" style="background:;">
-  <h3>Recap</h3>
-  <p>This new financial management application provides:</p>
+<p> </p><h3>
+<a name="recap" class="anchor" href="#recap"><span class="octicon octicon-link"></span></a>Recap</h3>
+  <p>This new financial management application provides:</p> 
 
 <ul>
 <li>An easy-to-use interface for financial metric analysis without the need to know R code or specific formulae offhand: just enter figures from a financial statement, and the app handles the rest.</li>
 <li>Multiple metric analysis available simultaneously, and the application platform is easily extensible to cover new financial metrics.</li>
 <li>Availability anywhere you have an internet connection.</li>
-</ul>
-
-<p>Try it today!  </p>
+</ul><p>Try it today!  </p>
 
 <p>Bookmark this page: 
 <a href="https://cs79.shinyapps.io/Financial-KPI-Tool/">https://cs79.shinyapps.io/Financial-KPI-Tool/</a></p>
 
-</article>
+<p></p>
 
-  </section>
-</body>
-  <!-- LOAD JAVASCRIPTS  -->
-	<script src='libraries/frameworks/html5slides/default/slides.js'></script>
-	<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
-	<script type="text/x-mathjax-config">
-	  MathJax.Hub.Config({
-	    tex2jax: {
-	      inlineMath: [['$','$'], ['\\(','\\)']],
-	      processEscapes: true
-	    }
-	  });
-	</script>
-	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-	</script> -->
-	<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
-</script>
-<!-- LOAD HIGHLIGHTER JS FILES -->
-	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
-	 
-	</html>
+<p></p> 
+  &lt;!-- LOAD JAVASCRIPTS  --&gt;
+    
+    &lt;!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves &gt;100MB) --&gt;
+    
+    &lt;!--  --&gt;
+    <pre><code>&lt;script src="libraries/highlighters/highlight.js/highlight.pack.js"&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
+&lt;!-- DONE LOADING HIGHLIGHTER JS FILES --&gt;
+
+&lt;/html&gt;
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Slidify Pitch Deck for Financial KPI Shiny App maintained by <a href="https://github.com/cs79">cs79</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
